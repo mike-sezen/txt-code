@@ -1,0 +1,56 @@
+<body>
+<h> Number Sorter: <br />
+  <br />
+  </h>
+<button onclick="printSortedArray()">Click Here!</button>
+  <p id="sort"></p>
+</body>
+
+body {
+  width: auto;
+  height: 160px;
+  text-align: center;
+}
+
+h {
+  font-family: Helvetica, sans serif;
+  font-size: large;
+  color: black;
+  font-weight: bold;
+} 
+
+p {
+  font-size: 16px;
+  font-family: Helvetica, sans serif;
+}
+
+button {
+  margin: auto;
+  background-color: white;
+  color: black;
+  padding: 16px 8px;
+  font-size: 16px;
+  border: 2px solid black;
+  text-align: center;
+  display: block;
+}
+
+button:hover {
+  background-color: #fe7778;
+  color: white;
+}
+
+function sortedArray(input) {
+  var array = input.split(" ");
+  for (value in array) {
+  	value = parseFloat(value);
+  }
+  array.sort(function(a, b){return a-b});
+  return array;
+}
+
+function printSortedArray() {
+	var input = prompt("Please enter numbers separated by spaces");
+  	var array = sortedArray(input);
+	document.getElementById("sort").innerHTML = array.join(" , ");
+}
